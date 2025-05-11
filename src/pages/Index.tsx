@@ -1,13 +1,23 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from 'react';
+import Layout from '@/components/Layout';
+import Hero from '@/components/Hero';
+import Services from '@/components/Services';
+import About from '@/components/About';
+import Contact from '@/components/Contact';
 
 const Index = () => {
+  useEffect(() => {
+    document.title = 'REVIVE Skin & Body Studio - Массаж и СПА в Саратове';
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4 color-black text-black">Добро пожаловать!</h1>
-        <p className="text-xl text-gray-600">тут будет отображаться ваш проект</p>
-      </div>
-    </div>
+    <Layout>
+      <Hero />
+      <Services />
+      <About />
+      <Contact />
+    </Layout>
   );
 };
 

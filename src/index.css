@@ -1,92 +1,55 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  /* Импорт шрифтов Google */
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 346 97% 23%;  /* #75020F - насыщенный бордовый */
+    --primary-foreground: 355 100% 97%;
+    --secondary: 343 83% 16%; /* #51080D - глубокий винный */
+    --secondary-foreground: 355 100% 97%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 39 38% 86%; /* Песочный акцент для светлого фона */
+    --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    --destructive-foreground: 0 0% 98%;
+    --border: 39 30% 84%;
+    --input: 39 30% 84%;
+    --ring: 346 97% 23%;
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
+    --background: 246 9% 10%; /* #19171B - темно-угольный */
+    --foreground: 0 0% 95%;
+    --card: 246 9% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 246 9% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 346 97% 23%; /* #75020F - насыщенный бордовый */
+    --primary-foreground: 355 100% 97%;
+    --secondary: 343 83% 16%; /* #51080D - глубокий винный */
+    --secondary-foreground: 355 100% 97%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 39 38% 72%; /* Темнее песочный для темного режима */
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --destructive-foreground: 0 0% 95%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 346 97% 23%;
   }
 }
 
@@ -94,8 +57,60 @@
   * {
     @apply border-border;
   }
-
+  
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-montserrat antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair font-medium leading-tight;
+  }
+  
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+/* Кастомные стили для сайта REVIVE */
+@layer components {
+  .container-revive {
+    @apply container px-4 md:px-8 mx-auto max-w-7xl;
+  }
+  
+  .btn-primary {
+    @apply bg-revive-primary hover:bg-revive-secondary text-white py-3 px-6 rounded-none uppercase tracking-wider text-sm transition-all duration-300 inline-flex items-center justify-center;
+  }
+  
+  .section-title {
+    @apply font-playfair text-3xl md:text-4xl font-medium relative pb-4 mb-8 inline-block;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-16 h-0.5 bg-revive-primary;
+  }
+  
+  .parallax-bg {
+    @apply bg-fixed bg-center bg-cover;
+  }
+  
+  .service-card {
+    @apply bg-white dark:bg-revive-dark border border-revive-sand/20 p-6 hover:shadow-lg transition-all duration-300;
+  }
+  
+  .animate-fade-in {
+    @apply motion-reduce:animate-none animate-fade-in;
   }
 }
