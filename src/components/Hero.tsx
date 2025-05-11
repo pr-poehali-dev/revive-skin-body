@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
@@ -18,11 +17,7 @@ const Hero = () => {
       {/* Содержимое секции */}
       <div className="container-revive relative z-10 mt-16">
         <div className="max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
+          <div className="fade-in-animation">
             <span className="text-revive-sand uppercase tracking-widest text-sm mb-4 inline-block">
               REVIVE Skin & Body Studio
             </span>
@@ -46,7 +41,7 @@ const Hero = () => {
                 Наши услуги
               </Button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
