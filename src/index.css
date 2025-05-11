@@ -1,11 +1,10 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   /* Импорт шрифтов Google */
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap");
 
   :root {
     --background: 0 0% 100%;
@@ -14,7 +13,7 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 346 97% 23%;  /* #75020F - насыщенный бордовый */
+    --primary: 346 97% 23%; /* #75020F - насыщенный бордовый */
     --primary-foreground: 355 100% 97%;
     --secondary: 343 83% 16%; /* #51080D - глубокий винный */
     --secondary-foreground: 355 100% 97%;
@@ -57,27 +56,32 @@
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground font-montserrat antialiased;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-playfair font-medium leading-tight;
   }
-  
+
   h1 {
     @apply text-4xl md:text-5xl lg:text-6xl;
   }
-  
+
   h2 {
     @apply text-3xl md:text-4xl;
   }
-  
+
   h3 {
     @apply text-2xl md:text-3xl;
   }
-  
+
   p {
     @apply leading-relaxed;
   }
@@ -88,29 +92,43 @@
   .container-revive {
     @apply container px-4 md:px-8 mx-auto max-w-7xl;
   }
-  
+
   .btn-primary {
     @apply bg-revive-primary hover:bg-revive-secondary text-white py-3 px-6 rounded-none uppercase tracking-wider text-sm transition-all duration-300 inline-flex items-center justify-center;
   }
-  
+
   .section-title {
     @apply font-playfair text-3xl md:text-4xl font-medium relative pb-4 mb-8 inline-block;
   }
-  
+
   .section-title::after {
-    content: '';
+    content: "";
     @apply absolute bottom-0 left-0 w-16 h-0.5 bg-revive-primary;
   }
-  
+
   .parallax-bg {
     @apply bg-fixed bg-center bg-cover;
   }
-  
+
   .service-card {
     @apply bg-white dark:bg-revive-dark border border-revive-sand/20 p-6 hover:shadow-lg transition-all duration-300;
   }
-  
-  .animate-fade-in {
-    @apply motion-reduce:animate-none animate-fade-in;
+
+  /* Исправлено: Убрана циклическая зависимость */
+  .fade-in-animation {
+    @apply motion-reduce:animate-none;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}
+
+/* Добавлен кастомный keyframe для анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
